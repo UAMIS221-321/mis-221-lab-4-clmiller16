@@ -32,6 +32,8 @@ static int GetUserChoice()
 static void DisplayMenu()
 {
     Console.Clear();
+    System.Console.WriteLine("Welcome, we will generate a triangle of a random size");
+    System.Console.WriteLine();
     System.Console.WriteLine("Enter 1 to display full triangle\nEnter 2 to display partial triangle\nEnter 3 to exit");
 
 }
@@ -69,13 +71,21 @@ static void PauseAction()
     Console.ReadKey();
 }
 
-// Random number generator 
-static int GenerateRandomNum()
+// Random number generators 
+static int GenerateRandomNumForRows()
 {
     Random rnd= new Random();
     int number = rnd.Next(3,10);
     return number;
 }
+
+static int GenerateRandomNumForStones()
+{
+    Random rnd= new Random();
+    int number = rnd.Next(1,101);
+    return number;
+}
+
 
 // Output Options
 static void GetFull()
@@ -98,7 +108,8 @@ static void SayInvalid()
 static void PrintFullTriangle()
 {
     int count = 0;
-    int rows = GenerateRandomNum();
+    int rows = GenerateRandomNumForRows();
+    System.Console.WriteLine();
     System.Console.WriteLine("Your triangle has " + rows + " rows.");
     int spaces = rows - 1;
 
@@ -118,11 +129,35 @@ static void PrintFullTriangle()
     }
 }
 
-// // Printing partial triangle
-// static void PrintPartialTriangle()
-// {
-//     PrintFullTriangle();
-// }
+// Printing partial triangle
+static void PrintPartialTriangle()
+{
+    int count = 0;
+    int rows = GenerateRandomNumForRows();
+    int numForStone = GenerateRandomNumForStones();
+    System.Console.WriteLine();
+    System.Console.WriteLine("Your triangle has " + rows + " rows.");
+    int spaces = rows - 1;
+
+    for (int j = 0; j <= rows; j++)
+    {
+      for (int l = 0; l < count; l++)
+        {
+            if (numForStone <= 92)
+            {
+                System.Console.Write("O");
+            }
+            numForStone = GenerateRandomNumForStones();
+        }
+        for (int k = 0; k < spaces; k++)
+        {
+            System.Console.Write(" ");
+        }
+        spaces = spaces - 1;
+        count = count + 1;
+        System.Console.WriteLine("");
+    }
+}
 
 
 // End Methods
