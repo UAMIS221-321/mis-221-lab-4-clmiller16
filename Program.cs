@@ -71,22 +71,6 @@ static void PauseAction()
     Console.ReadKey();
 }
 
-// Random number generators 
-static int GenerateRandomNumForRows()
-{
-    Random rnd= new Random();
-    int number = rnd.Next(3,10);
-    return number;
-}
-
-static int GenerateRandomNumForStones()
-{
-    Random rnd= new Random();
-    int number = rnd.Next(1,101);
-    return number;
-}
-
-
 // Output Options
 static void GetFull()
 {
@@ -104,18 +88,38 @@ static void SayInvalid()
     PauseAction();
 }
 
+// Say how many rows there are in this triangle
+static void SayNumberOfRows(int rows)
+{
+    System.Console.WriteLine();
+    System.Console.WriteLine("Your triangle has " + rows + " rows.");
+}
+
+// Random number generators 
+static int GenerateRandomNumForRows()
+{
+    Random rnd= new Random();
+    int number = rnd.Next(3,10);
+    return number;
+}
+
+static int GenerateRandomNumForStones()
+{
+    Random rnd= new Random();
+    int number = rnd.Next(1,101);
+    return number;
+}
+
 // Printing Full Triangle
 static void PrintFullTriangle()
 {
     int count = 0;
     int rows = GenerateRandomNumForRows();
-    System.Console.WriteLine();
-    System.Console.WriteLine("Your triangle has " + rows + " rows.");
     int spaces = rows - 1;
-
+    SayNumberOfRows(rows);
     for (int j = 0; j <= rows; j++)
     {
-      for (int l = 0; l < count; l++)
+        for (int l = 0; l < count; l++)
         {
             System.Console.Write("O");
         }
@@ -134,16 +138,14 @@ static void PrintPartialTriangle()
 {
     int count = 0;
     int rows = GenerateRandomNumForRows();
-    int numForStone = GenerateRandomNumForStones();
-    System.Console.WriteLine();
-    System.Console.WriteLine("Your triangle has " + rows + " rows.");
     int spaces = rows - 1;
-
+    int numForStone = GenerateRandomNumForStones();
+    SayNumberOfRows(rows);
     for (int j = 0; j <= rows; j++)
     {
-      for (int l = 0; l < count; l++)
+        for (int l = 0; l < count; l++)
         {
-            if (numForStone <= 92)
+            if (numForStone <= 87)
             {
                 System.Console.Write("O");
             }
