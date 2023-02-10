@@ -145,11 +145,15 @@ static void PrintPartialTriangle()
     {
         for (int l = 0; l < count; l++)
         {
-            if (numForStone <= 87)
+            numForStone = GenerateRandomNumForStones();
+            if (numForStone <= 70)
             {
                 System.Console.Write("O");
             }
-            numForStone = GenerateRandomNumForStones();
+            else
+            {
+                System.Console.Write(" ");
+            }
         }
         for (int k = 0; k < spaces; k++)
         {
