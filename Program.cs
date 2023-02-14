@@ -119,6 +119,14 @@ static void PrintFullTriangle()
     SayNumberOfRows(rows);
     for (int j = 0; j <= rows; j++)
     {
+        for (int i = 0; i < spaces + 1; i++)
+        {
+            System.Console.Write(" ");
+        }
+        for (int l = 0; l < count - 1; l++)
+        {
+            System.Console.Write("O");
+        }
         for (int l = 0; l < count; l++)
         {
             System.Console.Write("O");
@@ -143,7 +151,24 @@ static void PrintPartialTriangle()
     SayNumberOfRows(rows);
     for (int j = 0; j <= rows; j++)
     {
-        for (int l = 0; l < count; l++)
+        for (int i = 0; i < spaces + 1; i++)
+        {
+            System.Console.Write(" ");
+        }        
+        for (int l = 0; l < count - 1; l++)
+        {
+            numForStone = GenerateRandomNumForStones();
+            if (numForStone <= 70)
+            {
+                System.Console.Write("O");
+            }
+            else
+            {
+                System.Console.Write(" ");
+            }
+            
+        }
+        for (int r = 0; r < count; r++)
         {
             numForStone = GenerateRandomNumForStones();
             if (numForStone <= 70)
